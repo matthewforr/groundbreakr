@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
     @fund = Fund.all.sort_by{|a| a.raised_amount}.last
   end
 
-  def runkeeper_user 
-    @keeper_user = Runkeeper.new("b79f7d90676141a0be726a890a40fad7")
+  def runkeeper_user
+    @keeper_user = Runkeeper.new(@current_user.token)
   end
 
   def database_user

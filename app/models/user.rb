@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.run_count = 0
+      user.token = auth.credentials.token
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602225518) do
+ActiveRecord::Schema.define(:version => 20131205030741) do
 
   create_table "funds", :force => true do |t|
     t.string   "name"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(:version => 20130602225518) do
     t.datetime "updated_at",                                                     :null => false
     t.string   "provider"
     t.integer  "uid"
-    t.integer  "run_count"
+    t.integer  "run_count",                                     :default => 0
     t.decimal  "total_distance", :precision => 10, :scale => 2, :default => 0.0
     t.decimal  "total_donated",  :precision => 10, :scale => 2, :default => 0.0
+    t.string   "token"
   end
 
 end
