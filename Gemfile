@@ -10,7 +10,7 @@ gem 'mysql2'
 gem 'httparty'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'slim'
-gem 'runkeeper'
+gem 'runkeeper', :git => 'git://github.com/matthewforr/runkeeper.git'
 gem 'high_voltage'
 
 # Gems used only for assets and not required
@@ -29,6 +29,7 @@ end
 group :development, :test do
   gem 'mysql2'
   gem 'debugger'
+  gem 'quiet_assets'
 end
 
 group :production do
