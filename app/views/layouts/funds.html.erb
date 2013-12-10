@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funds Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groundbreakr</title>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">
+          <div id="user_nav">
+            <% if current_user %>
+              Signed in as <%= current_user.name %>
+              <%= link_to "Sign out", signout_path %>
+            <% else %>
+              <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span8 offset2">
+          <div class="well">
+            <div class="panel-body">
+              Basic panel example
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,8 +1,22 @@
 Groundbreakr::Application.routes.draw do
 
+  match '/auth/admin/callback', :to => 'sessions#authenticate_admin'
+
+  constraints :subdomain => 'admin' do
+    match '/auth/admin', :to => 'sessions#admin'
+    scope :module => 'admin', :as => 'admin' do
+      resources :funds
+      root :to => 'funds#index'
+      resources :users
+      # etc.
+    end
+  end
+
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
+
+  match '/auth/admin/callback', :to => 'sessions#authenticate_admin'
 
   resources :funds
 

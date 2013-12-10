@@ -7,7 +7,7 @@ base:  &base
   adapter: mysql2
   reconnect: false
   pool: 5
-  socket:
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
   username: groundbreakr
   password: runrun
   encoding: utf8

@@ -18,4 +18,17 @@ class SessionsController < ApplicationController
     render :text => "Sorry, but you didn't allow access to our app!"
   end
 
+  def authenticate_admin
+    session[:admin_user] = user.nickname
+
+    if admin?
+      redirect_to '/'
+    else
+      render :text => '401 Unauthorized', :status => 401
+    end
+  end
+
+  def admin
+    render :text => '<a href="/auth/runkeeper">Connect with runkeeper</a>'
+  end
 end

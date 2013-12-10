@@ -28,13 +28,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def miles_to_dollars_conversion(total_meters)
     miles = (total_meters/1609.34).round(3)
     amount_to_fund = miles * 4000
   end
 
+  def admin?
+    (ENV['ADMINS'] || "").include?(session[:user_id].to_s)
+  end
 
+  def admin_required
+    redirect_to '/auth/admin' unless admin?
+  end
+
+  helper_method :admin?
   helper_method :runkeeper_user
   helper_method :current_user
   helper_method :featured_fund

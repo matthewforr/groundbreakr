@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["name"]
       user.run_count = 0
       user.token = auth.credentials.token
+      user.nickname = auth['info']['nickname']
     end
   end
 
