@@ -8,7 +8,6 @@ gem 'omniauth'
 gem 'omniauth-runkeeper'
 gem 'mysql2'
 gem 'httparty'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'slim'
 gem 'runkeeper', :git => 'git://github.com/matthewforr/runkeeper.git'
 gem 'high_voltage'
@@ -16,8 +15,10 @@ gem 'high_voltage'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'foundation-rails'
+  gem 'font-awesome-rails'
+  gem 'normalize-rails'
   gem 'haml'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
