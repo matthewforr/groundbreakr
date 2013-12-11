@@ -1,13 +1,8 @@
-<div id="tabs">
-  <div id="tabs_container">
-    <ul id="home_tabs">
-      <li><a href="#live" onclick="return false;">Live</a></li>
-      <li><a href="#completed" onclick="return false;">Completed</a></li>
-      <li><a href="#leaderboard" onclick="return false;">Leaderboard</a></li>
-    </ul>
-  </div>
-  <div id="live">
-    <h1>CURRENT RUNS FOR WATSI</h1>
+<hr>
+
+<div class="row">
+  <div class="large-8 large-centered columns">
+    <h3>CURRENT RUNS FOR WATSI</h3>
 
 
     <div class="funds-container">
@@ -41,35 +36,9 @@
         <div class="fund-button">
           <a href="/auth/runkeeper" class="run-button">RUN FOR THIS</a>
         </div>
-  
-      </div>
-    <% end %>
-  </div>
-  </div>
-  <div id="completed">
-    <h1>COMPLETED RUNS FOR WATSI</h1>
 
-    <div class="funds-container">
-    <% @completed_funds.each do |fund| %>
-      <div class="funded-tile">
-        <%= image_tag(fund.avatar_url) %>
-        <progress value="100" max="100"></progress>
-        <div class="fund-info">
-          <div class="fund-blurb">
-            <h3><%= fund.name %>'s Story</h3>
-            <%= fund.description %>
-          </div>
-          <div class="fund-sponsor">
-          </div>
-        </div>
-        <div class="funded-button">
-        </div>
       </div>
     <% end %>
-  </div>
-  </div>
-  <div id="leaderboard">
-    <h1>TOP RUNNERS</h1>
-    <%= render :partial => "shared/leaderboard" %>
+    </div>
   </div>
 </div>
