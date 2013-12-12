@@ -43,7 +43,7 @@
 
         <% if current_user %>
           <div class="row">
-            <div class="large-8 large-centered columns">
+            <div class="large-6 large-centered columns">
               <h2><%= runkeeper_user.name.upcase %></h2>
 
               <div class="runkeeper_profile_image">
@@ -54,27 +54,19 @@
                 <table>
                   <tr>
                     <th>PROJECTS</th>
-                    <th></th>
-                    <th></th>
                     <th>TOTAL IMPACT</th>
-                    <th></th>
-                    <th></th>
                     <th>MILES</th>
                   </tr>
                   <tr>
-                    <td>9</td>
-                    <td></td>
-                    <td></td>
+                    <td>0</td>
                     <td>$<%= database_user.total_donated %></td>
-                    <td></td>
-                    <td></td>
                     <td><%= database_user.total_distance %></td>
                   </tr>
                   </table>
 
               </div>
               <div class="fund_avatar">
-                <%= image_tag('watsi-logo.png', height: '23', width: '100', class: 'featured-logo' ) %>
+                <%= image_tag('watsi-logo.png', height: '23', width: '100', class: 'featured-logo' ) %><br>
                 <%= image_tag("http://images-1.good.is/albums/crop?image_url=" + featured_fund.avatar_url + "&geometry=120x120%23", class: 'featured_avatar') %>
               </div>
               <div class="featured-right-container">
@@ -85,21 +77,15 @@
                 <% if contribution  > featured_fund.target_amount %>
                   <% contribution = featured_fund.target_amount %>
                 <% end %>
-                <div class="featured_fund_progress_bar">
-                  <% progress_number = ((contribution.to_f/featured_fund.target_amount.to_f)*100).round(0) %>
-                  <progress value="<%= progress_number %>" max="100" style="width: 330px;"></progress>
-                </div>
                 <div class="percent_completed">
-                  <%= progress_number %>%
-                  <div class="subtext">COMPLETED</div>
+                  <% progress_number = ((contribution.to_f/featured_fund.target_amount.to_f)*100).round(0) %>
+                  <%= progress_number %>% COMPLETED
+                  <div class="progress">
+                    <span class="meter" style="width: <%= progress_number %>%;"></span>
+                  </div>
                 </div>
                 <div class="featured_fund_stat">
-                  $<%= contribution %> / <%= featured_fund.target_amount %>
-                  <div class="subtext">RAISED SO FAR</div>
-                </div>
-                <div class="heros">
-                  32
-                  <div class="subtext">HEROES</div>
+                  $<%= contribution %> of $<%= featured_fund.target_amount %> RAISED SO FAR
                 </div>
               </div>
             </div>
